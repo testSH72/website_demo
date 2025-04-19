@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhouk Tounsi</title>
+    <link rel="stylesheet" href="boubou.css">
+</head>
+   
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <h1><span>Dhouk</span> Tounsi</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h2>Wherever you are ,our Tunisia finds you</h2>
+        <p>Indulge in authentic Tunisian craftsmanship. Discover timeless elegance and heritage.</p>
+        <a href="#products" class="btn-main">Shop Now</a>
+    </div>
+    <div class="flag-container">
+        <img src="flag.jpg" alt="Tunisian Flag" class="flag-image">
+    </div>
+
+</section>
+
+
+
+<section id="products" class="products-section">
+    
+        <h2 class="section-title">Products</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="product1.jpg.jpg" alt="Tunisian olive oil" class="product-image">
+                <div class="product-info">
+                    <h3>Tunisian Olive Oil</h3>
+                    <p class="description"> high quality olive oil that reflect the land and its people. The tradition is enmeshed in Tunisian culture, its livelihood, and thousands of years growing olives and producing quality olive oil.</p>
+                    <p class="price">35.00TD</p>
+                    <button class="btn-add-to-cart" data-product="Tunisian olive oil" data-price="35.00">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="product2.jpg.jpg" alt="Tunisian Harissa" class="product-image">
+                <div class="product-info">
+                    <h3>Harissa</h3>
+                    <p class="description"> an exotic blend of hot red peppers, oil and various spices. This paste is used to create the base for many curries and stews</p>
+                    <p class="price">15.00TD</p>
+                    <button class="btn-add-to-cart" data-product="Tunisian harissa" data-price="15.00">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="product3.jpg.jpg" alt="Tunisian biscuits" class="product-image">
+                <div class="product-info">
+                    <h3>The taste of your childhood</h3>
+                    <p class="description">existing since the 80 with the same packaging,quality and excellence ,known by the favorite snack of kids,adults and old people.</p>
+                    <p class="price">10.00TD</p>
+                    <button class="btn-add-to-cart" data-product="Tunisian biscuits" data-price="10.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="product4.jpg.jpg" alt="Tunisian snacks" class="product-image">
+                <div class="product-info">
+                    <h3>Tunisian snack</h3>
+                    <p class="description"> Tunisian crunshy snack called "crosstina"</p>
+                    <p class="price">09.00TD</p>
+                    <button class="btn-add-to-cart" data-product="Tunisian crosstina" data-price="09.00">Add to Cart</button>
+                </div>
+        </div>
+        <div class="product-card">
+            <img src="product5.jpg.jpg" alt="Tunisian dates" class="product-image">
+            <div class="product-info">
+                <h3>Tunisian dates</h3>
+                <p class="description"> Deglet Nour is traditionally known as the "Date of Shining Light" for its translucid blonde colour, its unique flavor ans referred to as "THE DATE".</p>
+                <p class="price">55.00TD</p>
+                <button class="btn-add-to-cart" data-product="Tunisian dates" data-price="55.00">Add to Cart</button>
+            </div>
+    </div>
+    <div class="product-card">
+        <img src="product6.jpg.jpg" alt="Tunisian Tuna" class="product-image">
+        <div class="product-info">
+            <h3>Tunisian Tuna</h3>
+            <p class="description">The waters off Tunisia are some of the world's best spawning grounds for bluefin tuna that's why it's so delicious</p>
+            <p class="price">7.00TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian Tuna" data-price="7.00">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product7.jpg.webp" alt="Tunisian Pasta" class="product-image">
+        <div class="product-info">
+            <h3>Tunisian Pasta</h3>
+            <p class="description">Spigua pasta ; macarona is what we call an elbow macaroni cooked dish with spiced ground beef. It's an easy family favorite that is a real crowdpleaser!</p>
+            <p class="price">3.00TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian Pasta" data-price="3.00">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product8.jpg.jpg" alt="Tunisian cleaning products" class="product-image">
+        <div class="product-info">
+            <h3>Tunisian cleaning products</h3>
+            <p class="description">Has 28 products and especially known by its high quality and cheap prices</p>
+            <p class="price">10.00TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian cleaning products" data-price="10.00">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product9.jpg.jpg" alt="Tunisian snacks" class="product-image">
+        <div class="product-info">
+            <h3>Saida classic</h3>
+            <p class="description">Tunisian snacks by saida group(Mabrouk group) it operates 38% of tunisian marketshare thanks to its unique taste and wonderful flavors.</p>
+            <p class="price">2.50TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian snacks" data-price="2.50">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product10.jpg.jpg" alt="Tunisian snacks" class="product-image">
+        <div class="product-info">
+            <h3> Your Beloved gauffrette Chokotom</h3>
+            <p class="description">existing since the 80 with the same packaging,quality and excellence ,known by the favorite snack of kids,adults and old people.</p>
+            <p class="price">2.50TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian snacks" data-price="2.50">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product11.jpg.jpg" alt="Tunisian snacks" class="product-image">
+        <div class="product-info">
+            <h3>Gaucho</h3>
+            <p class="description">Tunisian snacks by saida group(Mabrouk group) it operates 38% of tunisian marketshare thanks to its unique taste and wonderful flavors.</p>
+            <p class="price">0.90TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian snacks" data-price="0.90">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product12.jpg.png" alt="Tunisian milks" class="product-image">
+        <div class="product-info">
+            <h3>Fruits juice </h3>
+            <p class="description">Milk and its derivatives by Vitalait helping the boycott with its high quality.</p>
+            <p class="price">1.30TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian milks" data-price="1.30">Add to Cart</button>
+        </div>
+    </div>
+    <div class="product-card">
+        <img src="product13.jpg.jpg" alt="Tunisian pasta" class="product-image">
+        <div class="product-info">
+            <h3>Couscous</h3>
+            <p class="description">The ideal brand to make one of the most delicious and traditional tunisian plates.</p>
+            <p class="price">1.30TD</p>
+            <button class="btn-add-to-cart" data-product="Tunisian pasta" data-price="1.30">Add to Cart</button>
+        </div>
+    </div>
+
+       
+    </div>   
+
+</section>
+
+<!-- Hero Section for Promotion Page -->
+<section class="hero">
+    <h2>Special Promotions</h2>
+    <p>Don't miss out on our exciting discounts!</p>
+    <a href="#" class="btn-main">Shop Now</a>
+</section>
+
+<!-- Promotional Products Section -->
+<section class="products-section">
+    <h2 class="section-title">Promotional Tunisian Products especially for women</h2>
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="z.jpg" alt="Product 1" class="product-image">
+            <div class="product-info">
+                <h3>Zynia Micelar Water</h3>
+                <p class="description">Great new tunisian product at a discounted price.</p>
+                <p class="price"><span class="old-price">20.00 TD</span> 15.00TD</p>
+                <button class="btn-add-to-cart" data-product="Zynia Micelar Water" data-price="15.00">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Example Product 2 -->
+        <div class="product-card">
+            <img src="zy.jpg" alt="Product 2" class="product-image">
+            <div class="product-info">
+                <h3>Zynia cleaning gel</h3>
+                <p class="description">Special offer! Limited time only.</p>
+                <p class="price"><span class="old-price">25TD</span> 20TD</p>
+                <button class="btn-add-to-cart" data-product="Zynia cleaning gel" data-price="20.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="c.jpg" alt="Product 3" class="product-image">
+            <div class="product-info">
+                <h3>Lella vitamin C serum</h3>
+                <p class="description">Special offer! Limited time only.Tunisian brand known by its softness and care for women.</p>
+                <p class="price"><span class="old-price">30TD</span> 25TD</p>
+                <button class="btn-add-to-cart" data-product="Lella vitamin C serum" data-price="25.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="k.jpg" alt="Product 4" class="product-image">
+            <div class="product-info">
+                <h3>Lipstick pack</h3>
+                <p class="description">Special offer! Limited time only.</p>
+                <p class="price"><span class="old-price">35TD</span> 20TD</p>
+                <button class="btn-add-to-cart" data-product="Lipstick pack" data-price="20.00">Add to Cart</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="kl.jpg" alt="Product 5" class="product-image">
+            <div class="product-info">
+                <h3>Kolsi nails polish</h3>
+                <p class="description">Special offer! Limited time only.</p>
+                <p class="price"><span class="old-price">25TD</span> 20TD</p>
+                <button class="btn-add-to-cart" data-product="Kolsi nails polish" data-price="20.00">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    </section>
+<!-- About Us Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <p>We bring you the finest selection of Tunisian products, sourced from the heart of Tunisia. Our curated collection is designed to highlight the beauty, craftsmanship
+        </p>
+    </div>
+</section>
+            <!-- Contact Form Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+<!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <h2>Your Cart</h2>
+            <ul id="cart-items-list"></ul>
+            <p>Total: &nbsp;<span id="cart-total">0.00</span>&nbsp;TD</p>
+            <button id="confirm-order-btn">Confirm Order</button>
+            <button id="close-cart-btn">Close</button>
+        </div>
+    </div>
+
+<!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Boubou Boutique. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+<!-- order confirm -->
+<div id="order-confirmation" class="confirmation-popup">
+    <div class="confirmation-content">
+        <div class="checkmark">&#10004;</div>
+        <p>Your order is successfully submitted! We will contact you soon!</p>
+    <img src="flag.jpg" alt="Flag" class="confirmation-flag">
+
+    </div>
+</div>
+<!-- Contact confirm -->
+<div class="confirmation-popup" id="contact-confirmation">
+  <div class="confirmation-content">
+    <div class="checkmark">&#10004;</div>
+    <p>Your request was sent successfully! We will get in touch. </p>
+      <img src="flag.jpg" alt="Flag" class="confirmation-flag">
+  </div>
+</div>
+    
+<script src="boubou.js"></script>
+</body>
+</html>
+
