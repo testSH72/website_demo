@@ -73,12 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close via button
     closeCartButton.addEventListener('click', () => {
       cartModal.classList.remove('active');
+      resetCartFieldsOnly();
     });
   
     // Close via backdrop
     cartModal.addEventListener('click', e => {
       if (e.target === cartModal) {
         cartModal.classList.remove('active');
+        resetCartFieldsOnly();
       }
     });
   });
@@ -91,7 +93,10 @@ function isValidCreditCard(cardNumber) {
     const cardNumberArray = cardNumber.replace(/\D/g, '').split('').reverse();
     let sum = 0;
     let shouldDouble = false;
-
+    if (isNaN(cardNumber)){
+        alert("Veuillez saisir un numéro de carte de crédit valide.");
+        return;
+    }
     for (let i = 0; i < cardNumberArray.length; i++) {
         let digit = parseInt(cardNumberArray[i]);
 
@@ -196,10 +201,3 @@ function resetCartFieldsOnly() {
     document.querySelectorAll('.radio-group label').forEach(label => label.classList.remove("selected"));
     creditCardRadio.closest("label").classList.add("selected");
 }
-
-
-
-
-
-
-  
