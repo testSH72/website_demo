@@ -252,27 +252,92 @@
     </div>
 </section>
 
-<!-- Cart Modal -->
+<!-- Modal Panier --> 
 <div class="cart-modal" id="cart-modal">
     <div class="cart-modal-content">
-        <h2>Votre panier</h2>
-        <ul id="cart-items-list"></ul>
-        <p>Total: &nbsp;<span id="cart-total">0.00</span>&nbsp;TD</p>
-
-        <h3>Entrez vos coordonnées</h3>
-        <label for="first-name">Nom</label>
-        <input type="text" id="first-name" placeholder="Nom" required>
-
-        <label for="last-name">Prénom</label>
-        <input type="text" id="last-name" placeholder="Prénom" required>
-
+      <h2>Votre panier</h2>
+      <ul id="cart-items-list"></ul>
+      <p>Total : <span id="cart-total">0.00</span> TD</p>
+  
+      <h3>Entrez vos coordonnées</h3>
+  
+      <label for="first-name">Nom</label>
+      <input type="text" id="first-name" placeholder="Nom" required>
+  
+      <label for="last-name">Prénom</label>
+      <input type="text" id="last-name" placeholder="Prénom" required>
+  
+      <p><strong>Méthode de paiement</strong></p>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="payment-method" value="credit-card" checked>
+          Carte de crédit
+        </label>
+        <label>
+          <input type="radio" name="payment-method" value="cash-on-delivery">
+          Paiement à la livraison
+        </label>
+      </div>
+      
+      <div id="credit-card-fields">
         <label for="credit-card">Numéro de carte de crédit</label>
         <input type="text" id="credit-card" placeholder="Numéro Carte de Crédit" required>
-
-        <button id="confirm-order-btn">Confirmer la commande</button>
-        <button id="close-cart-btn">Fermer</button>
-    </div>
+      </div>
+      
+      <div id="delivery-address-fields" style="display: none;">
+        <label for="delivery-address">Adresse de livraison</label>
+        <input type="text" id="delivery-address" placeholder="Adresse de livraison" required>
+      </div>
+      
+      <button id="confirm-order-btn">Confirmer la commande</button>
+      <button id="close-cart-btn">Fermer</button>
 </div>
+</div>   
+      <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const paymentRadios        = document.querySelectorAll('input[name="payment-method"]');
+  const creditCardFields     = document.getElementById('credit-card-fields');
+  const deliveryAddressFields= document.getElementById('delivery-address-fields');
+  const creditCardInput      = document.getElementById('credit-card');
+  const deliveryAddressInput = document.getElementById('delivery-address');
+
+  function togglePaymentFields() {
+    const selected = document.querySelector('input[name="payment-method"]:checked').value;
+    if (selected === 'credit-card') {
+      creditCardFields.style.display = 'block';
+      deliveryAddressFields.style.display = 'none';
+      creditCardInput.required = true;
+      deliveryAddressInput.required = false;
+    } else {
+      creditCardFields.style.display = 'none';
+      deliveryAddressFields.style.display = 'block';
+      creditCardInput.required = false;
+      deliveryAddressInput.required = true;
+    }
+  }
+
+  paymentRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
+      // 1) style the labels
+      paymentRadios.forEach(r => r.parentElement.classList.remove('selected'));
+      if (this.checked) this.parentElement.classList.add('selected');
+
+      // 2) show/hide fields
+      togglePaymentFields();
+    });
+  });
+
+  // initialize on load
+  togglePaymentFields();
+  // mark the default checked radio
+  document.querySelector('input[name="payment-method"]:checked')
+          .parentElement.classList.add('selected');
+});
+
+      </script>
+      
+  
+  
 
 <!-- Footer Section -->
 <footer>
