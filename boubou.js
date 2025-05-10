@@ -12,6 +12,24 @@ const cartItemsList = document.getElementById("cart-items-list");
 const cartTotal = document.getElementById("cart-total");
 const closeCartButton = document.getElementById("close-cart-btn");
 const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+const deliveryAddressInput = document.getElementById("delivery-address");
+
+
+
+function togglePaymentFields() {
+    const selected = document.querySelector('input[name="payment-method"]:checked').value;
+    if (selected === 'credit-card') {
+      creditCardFields.style.display = 'block';
+      deliveryAddressFields.style.display = 'none';
+      creditCardInput.required = true;
+      deliveryAddressInput.required = false;
+    } else {
+      creditCardFields.style.display = 'none';
+      deliveryAddressFields.style.display = 'block';
+      creditCardInput.required = false;
+      deliveryAddressInput.required = true;
+    }
+  }
 
 // Add to Cart Functionality
 addToCartButtons.forEach(button => {
@@ -39,22 +57,34 @@ function updateCart() {
     cartTotal.textContent = total.toFixed(2);
 }
 
-// Show Cart Modal
-cartLink.addEventListener('click', function () {
-    cartModal.style.display = 'flex';
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const cartLink        = document.getElementById('cart-link');
+    const cartModal       = document.getElementById('cart-modal');
+    const closeCartButton = document.getElementById('close-cart-btn');
+  
+    // Open
+    cartLink.addEventListener('click', e => {
+      e.preventDefault();
+      
+      updateCart();
+      cartModal.classList.add('active');
+    });
 
-// Hide Cart Modal
-closeCartButton.addEventListener('click', function () {
-    cartModal.style.display = 'none';
-});
+    // Close via button
+    closeCartButton.addEventListener('click', () => {
+      cartModal.classList.remove('active');
+    });
+  
+    // Close via backdrop
+    cartModal.addEventListener('click', e => {
+      if (e.target === cartModal) {
+        cartModal.classList.remove('active');
+      }
+    });
+  });
+  
 
-// Hide Cart Modal when clicking outside the modal content
-window.addEventListener('click', function (e) {
-    if (e.target === cartModal) {
-        cartModal.style.display = 'none';
-    }
-});
+  
 
 // Luhn Algorithm to validate the credit card number
 function isValidCreditCard(cardNumber) {
@@ -99,26 +129,32 @@ confirmOrderBtn.addEventListener('click', function () {
         return;
     }
 
-    // Validate credit card
-    const creditCard = creditCardInput.value.trim();
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
 
-    if (!creditCard || !isValidCreditCard(creditCard)) {
+    if (paymentMethod === 'credit-card') {
+      // 3a) Credit-card => validate number
+      const cc = creditCardInput.value.trim();
+      if (!cc || !isValidCreditCard(cc)) {
         alert("Veuillez saisir un numéro de carte de crédit valide.");
         return;
+      }
     }
 
     // Show confirmation popup
     confirmationPopup.style.display = 'flex';
-    cartModal.style.display = 'none';
+    cartModal.classList.remove('active'); 
 
     // Reset cart
     cart = [];
     updateCart();
-
+    
     // Auto close confirmation after 3 seconds
     setTimeout(() => {
         confirmationPopup.style.display = 'none';
+        resetCartFieldsOnly();
     }, 3000);
+
+    
 });
 
 // Contact form submission handler
@@ -137,3 +173,33 @@ document.querySelector(".contact-section form").addEventListener("submit", funct
     // Reset the form fields
     this.reset();
 });
+
+
+function resetCartFieldsOnly() {
+    // Reset input fields
+    firstNameInput.value = "";
+    lastNameInput.value = "";
+    creditCardInput.value = "";
+    
+    if (deliveryAddressInput) {
+        deliveryAddressInput.value = "";
+    }
+
+    // Reset payment method to credit card
+    const creditCardRadio = document.querySelector('input[value="credit-card"]');
+    creditCardRadio.checked = true;
+
+    // Force triggering the 'change' event to ensure togglePaymentFields reacts
+    creditCardRadio.dispatchEvent(new Event('change', { bubbles: true }));
+
+    // Reset label styling
+    document.querySelectorAll('.radio-group label').forEach(label => label.classList.remove("selected"));
+    creditCardRadio.closest("label").classList.add("selected");
+}
+
+
+
+
+
+
+  
